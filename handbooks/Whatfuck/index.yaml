@@ -1,0 +1,11 @@
+project: bakerfi
+stages:
+  - stage: 1
+    template: handbooks/Methodology/stage1_methodology.md
+    instance: handbooks/Implementaion/stage1_instance.md
+  - stage: 2
+    template: handbooks/Methodology/stage2_methodology.md
+    instance: handbooks/Implementaion/stage2_instance.md
+  - stage: 3
+    template: handbooks/Methodology/stage3_methodology.md
+    instance: handbooks/Implementaion/stage3_instance.md

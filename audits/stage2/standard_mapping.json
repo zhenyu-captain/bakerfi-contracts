@@ -1,0 +1,47 @@
+[
+  {
+    "module": "vault",
+    "dimension": "value",
+    "LATER": "A",
+    "standards": {"SWC": "SWC-107", "SCSVS": "SCSVS-Asset-Accounting"},
+    "risk": "medium",
+    "description": "资产会计/守恒",
+    "notes": "确认 totalAssets 与份额守恒"
+  },
+  {
+    "module": "router",
+    "dimension": "batch",
+    "LATER": "R",
+    "standards": {"SWC": "SWC-128", "SCSVS": "SCSVS-Atomicity"},
+    "risk": "medium",
+    "description": "原子性/顺序",
+    "notes": "全成/全败语义"
+  },
+  {
+    "module": "proxy",
+    "dimension": "upgrade",
+    "LATER": "R",
+    "standards": {"SWC": "SWC-112", "SCSVS": "SCSVS-Upgrade-Safety"},
+    "risk": "high",
+    "description": "初始化与存储兼容",
+    "notes": "初始化幂等与存储布局兼容"
+  },
+  {
+    "module": "oracles",
+    "dimension": "oracle",
+    "LATER": "E",
+    "standards": {"SWC": "SWC-116", "SCSVS": "SCSVS-Oracle-Freshness"},
+    "risk": "high",
+    "description": "新鲜度与偏差",
+    "notes": "新鲜度阈值与价格偏差控制"
+  },
+  {
+    "module": "settings",
+    "dimension": "authority",
+    "LATER": "T",
+    "standards": {"SWC": "SWC-124", "SCSVS": "SCSVS-AccessControl"},
+    "risk": "medium",
+    "description": "权限集中与最小化",
+    "notes": "角色最小化与越权防护"
+  }
+]

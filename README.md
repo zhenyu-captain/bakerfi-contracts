@@ -1,5 +1,12 @@
 # What fuck
 1. ready
+2. 工作目录在handbooks，bak是备份，Default是详细抽象，Implementaion是简易抽象，Methodology是简易抽象的实例，PrepareDocument的keywords.json是项目提取的关键词表，用来理解项目背景，project-roles.json是项目文件表，用来理解文件在项目当中发挥的作用适合使用json4u查看，Whatfuck是思路形成的过程性文件
+3. 当前工作进度，设计输入Keywords拉倒开源框架的Readme.md来检查适合的工具，也包括思路的发散扩散。具体可看ProjectObjective的README.md文档
+
+
+
+ProjectObjective是项目目标，Whatfuck是过程性思路形成的文件。
+
 
 # BakerFi Smart Contracts
 

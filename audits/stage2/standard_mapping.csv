@@ -1,0 +1,6 @@
+module,dimension,LATER,standard,type,risk,description,notes
+vault,value,A,SWC-107,SWC,medium,资产会计/守恒,确认 totalAssets 与份额守恒
+router,batch,R,SWC-128,SWC,medium,原子性/顺序,全成/全败语义
+proxy,upgrade,R,SWC-112,SWC,high,初始化与存储兼容,初始化幂等与存储布局兼容
+oracles,oracle,E,SWC-116,SWC,high,新鲜度与偏差,新鲜度阈值与价格偏差控制
+settings,authority,T,SWC-124,SWC,medium,权限集中与最小化,角色最小化与越权防护
