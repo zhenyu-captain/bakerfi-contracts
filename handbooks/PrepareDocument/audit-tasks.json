@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "project": "BakerFi Smart Contracts",
+  "description": "Machine-runnable audit tasks: what to verify, with which tool, at which stage.",
+  "globals": {
+    "node": ">=20",
+    "npm": ">=9",
+    "hardhat": ">=2",
+    "paths": {
+      "root": ".",
+      "contracts": "contracts",
+      "tests": "test",
+      "scripts": "scripts",
+      "doc": "doc",
+      "evidence_base": "audits/stage2/evidence",
+      "slither_reports": "audits/stage2/slither",
+      "graphs": "audits/stage2/graphs",
+      "gas": "audits/stage2/gas",
+      "findings": "audits/stage2/findings"
+    },
+    "evidence_id_prefix": "BF",
+    "evidence_naming": "BF-{module}-s2-{phase}-{topic}-{index}-{type}"
+  },
+  "stages": [
+    {
+      "id": "s1",
+      "name": "baseline",
+      "description": "Compile + quick tests + environment sanity.",
+      "commands": [
+        {"cmd": "npm ci", "note": "Install dependencies with lockfile"},
+        {"cmd": "npx hardhat compile", "note": "Compile contracts"},
+        {"cmd": "npx hardhat test", "note": "Run baseline test suite"}
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "full_audit",
+      "description": "Static analysis, tests, coverage, gas, optional invariants & graphs.",
+      "commands": [
+        {"cmd": "npx hardhat test", "note": "Run full test suite"},
+        {"cmd": "npx hardhat coverage", "note": "Generate solidity-coverage report"},
+        {"cmd": "slither . --config-file slither.config.json", "note": "Static analysis"},
+        {"cmd": "echidna-test . --config echidna.yaml", "note": "Optional: run invariants if configured"},
+        {"cmd": "surya graph contracts/core/Vault.sol --output audits/stage2/graphs/vault.dot", "note": "Optional: call graph"}
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "report_aggregation",
+      "description": "Aggregate evidence and produce findings index.",
+      "commands": [
+        {"cmd": "node scripts/cli.js --aggregate", "note": "Optional: aggregation script if present"}
+      ]
+    }
+  ],
+  "tools": {
+    "hardhat": {
+      "test": "npx hardhat test",
+      "coverage": "npx hardhat coverage",
+      "gas": "npm run test:gas"
+    },
+    "slither": {"run": "slither . --config-file slither.config.json"},
+    "echidna": {"run": "echidna-test . --config echidna.yaml"},
+    "surya": {"graph": "surya graph {contract} --output audits/stage2/graphs/{name}.dot"},
+    "mythril": {"analyze": "myth analyze {contract} -o json -t 300"}
+  },
+  "modules": [
+    {
+      "id": "vault",
+      "name": "Vault",
+      "contracts": ["contracts/core/Vault.sol", "contracts/core/VaultBase.sol"],
+      "tasks": [
+        {
+          "check": "funds_conservation_and_events_consistency",
+          "stage": "s2",
+          "tools": ["hardhat", "coverage", "gas"],
+          "commands": [
+            "npx hardhat test --grep Vault",
+            "npx hardhat coverage",
+            "npm run test:gas"
+          ],
+          "evidence": {
+            "tests": "audits/stage2/evidence/tests/BF-vault-s2-A-asset-001-test.log",
+            "coverage": "coverage/index.html",
+            "gas": "audits/stage2/gas/vault.md"
+          }
+        },
+        {
+          "check": "access_control_and_initialization",
+          "stage": "s2",
+          "tools": ["slither"],
+          "commands": [
+            "slither . --config-file slither.config.json --json audits/stage2/slither/vault.json"
+          ],
+          "evidence": {"static": "audits/stage2/slither/vault.json"}
+        },
+        {
+          "check": "invariants_price_per_share_monotonic",
+          "stage": "s2",
+          "tools": ["echidna"],
+          "optional": true,
+          "commands": [
+            "echidna-test . --config echidna.yaml"
+          ],
+          "evidence": {"invariants": "audits/stage2/evidence/invariants/vault.txt"}
+        },
+        {
+          "check": "call_graph_review",
+          "stage": "s2",
+          "tools": ["surya"],
+          "optional": true,
+          "commands": [
+            "surya graph contracts/core/Vault.sol --output audits/stage2/graphs/vault.dot"
+          ],
+          "evidence": {"graphs": "audits/stage2/graphs/vault.dot"}
+        }
+      ]
+    },
+    {
+      "id": "router",
+      "name": "VaultRouter & MultiCommand",
+      "contracts": ["contracts/core/VaultRouter.sol", "contracts/core/MultiCommand.sol"],
+      "tasks": [
+        {
+          "check": "batching_and_command_sequence_safety",
+          "stage": "s2",
+          "tools": ["hardhat", "gas"],
+          "commands": [
+            "npx hardhat test --grep Router",
+            "npm run test:gas"
+          ],
+          "evidence": {
+            "tests": "audits/stage2/evidence/tests/BF-router-s2-B-batch-001-test.log",
+            "gas": "audits/stage2/gas/router.md"
+          }
+        },
+        {
+          "check": "external_calls_and_reentrancy_review",
+          "stage": "s2",
+          "tools": ["slither"],
+          "commands": [
+            "slither . --config-file slither.config.json --json audits/stage2/slither/router.json"
+          ],
+          "evidence": {"static": "audits/stage2/slither/router.json"}
+        }
+      ]
+    },
+    {
+      "id": "strategies",
+      "name": "MultiStrategy",
+      "contracts": ["contracts/core/MultiStrategy.sol"],
+      "tasks": [
+        {
+          "check": "allocation_and_rebalance_consistency",
+          "stage": "s2",
+          "tools": ["hardhat", "coverage"],
+          "commands": [
+            "npx hardhat test --grep Strategy",
+            "npx hardhat coverage"
+          ],
+          "evidence": {
+            "tests": "audits/stage2/evidence/tests/BF-strategy-s2-A-alloc-001-test.log",
+            "coverage": "coverage/index.html"
+          }
+        },
+        {
+          "check": "gas_profile_on_rebalance",
+          "stage": "s2",
+          "tools": ["gas"],
+          "commands": ["npm run test:gas"],
+          "evidence": {"gas": "audits/stage2/gas/strategies.md"}
+        }
+      ]
+    },
+    {
+      "id": "oracles",
+      "name": "Pyth & Ratio & ExRate Oracles",
+      "contracts": ["contracts/oracles/PythOracle.sol"],
+      "tasks": [
+        {
+          "check": "freshness_and_deviation_limits",
+          "stage": "s2",
+          "tools": ["hardhat"],
+          "commands": [
+            "npx hardhat test --grep Oracle"
+          ],
+          "evidence": {"tests": "audits/stage2/evidence/tests/BF-oracle-s2-E-freshness-001-test.log"}
+        },
+        {
+          "check": "static_review_of_price_feeds",
+          "stage": "s2",
+          "tools": ["slither"],
+          "commands": [
+            "slither . --config-file slither.config.json --json audits/stage2/slither/oracles.json"
+          ],
+          "evidence": {"static": "audits/stage2/slither/oracles.json"}
+        }
+      ]
+    },
+    {
+      "id": "proxy",
+      "name": "Upgradeable Proxy",
+      "contracts": ["contracts/proxy/BakerFiProxy.sol"],
+      "tasks": [
+        {
+          "check": "storage_layout_compatibility_and_delegatecall_usage",
+          "stage": "s2",
+          "tools": ["slither", "mythril"],
+          "optional": true,
+          "commands": [
+            "slither . --config-file slither.config.json --json audits/stage2/slither/proxy.json",
+            "myth analyze contracts/proxy/BakerFiProxy.sol -o json -t 300"
+          ],
+          "evidence": {
+            "static": "audits/stage2/slither/proxy.json",
+            "symbolic": "audits/stage2/evidence/static/proxy-mythril.json"
+          }
+        }
+      ]
+    }
+  ]
+}
