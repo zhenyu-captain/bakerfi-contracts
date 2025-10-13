@@ -1581,3 +1581,4 @@ async function deployWithMockStrategyFunction() {
   const pVault = await ethers.getContractAt('Vault', await proxy.getAddress());
   return { owner, weth, otherAccount, vault: pVault, strategy };
 }
+

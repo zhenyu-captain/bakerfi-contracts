@@ -13,7 +13,7 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
@@ -21,7 +21,7 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from '../../../../common';
+} from "../../../../common";
 
 export declare namespace DataTypes {
   export type EModeCategoryStruct = {
@@ -37,7 +37,7 @@ export declare namespace DataTypes {
     liquidationThreshold: bigint,
     liquidationBonus: bigint,
     priceSource: string,
-    label: string,
+    label: string
   ] & {
     ltv: bigint;
     liquidationThreshold: bigint;
@@ -85,7 +85,7 @@ export declare namespace DataTypes {
     interestRateStrategyAddress: string,
     accruedToTreasury: bigint,
     unbacked: bigint,
-    isolationModeTotalDebt: bigint,
+    isolationModeTotalDebt: bigint
   ] & {
     configuration: DataTypes.ReserveConfigurationMapStructOutput;
     liquidityIndex: bigint;
@@ -114,104 +114,129 @@ export declare namespace DataTypes {
 export interface IPoolV3Interface extends Interface {
   getFunction(
     nameOrSignature:
-      | 'ADDRESSES_PROVIDER'
-      | 'BRIDGE_PROTOCOL_FEE'
-      | 'FLASHLOAN_PREMIUM_TOTAL'
-      | 'FLASHLOAN_PREMIUM_TO_PROTOCOL'
-      | 'MAX_NUMBER_RESERVES'
-      | 'MAX_STABLE_RATE_BORROW_SIZE_PERCENT'
-      | 'backUnbacked'
-      | 'borrow'
-      | 'configureEModeCategory'
-      | 'deposit'
-      | 'dropReserve'
-      | 'finalizeTransfer'
-      | 'flashLoan'
-      | 'flashLoanSimple'
-      | 'getConfiguration'
-      | 'getEModeCategoryData'
-      | 'getReserveAddressById'
-      | 'getReserveData'
-      | 'getReserveNormalizedIncome'
-      | 'getReserveNormalizedVariableDebt'
-      | 'getReservesList'
-      | 'getUserAccountData'
-      | 'getUserConfiguration'
-      | 'getUserEMode'
-      | 'initReserve'
-      | 'liquidationCall'
-      | 'mintToTreasury'
-      | 'mintUnbacked'
-      | 'rebalanceStableBorrowRate'
-      | 'repay'
-      | 'repayWithATokens'
-      | 'repayWithPermit'
-      | 'rescueTokens'
-      | 'resetIsolationModeTotalDebt'
-      | 'setConfiguration'
-      | 'setReserveInterestRateStrategyAddress'
-      | 'setUserEMode'
-      | 'setUserUseReserveAsCollateral'
-      | 'supply'
-      | 'supplyWithPermit'
-      | 'swapBorrowRateMode'
-      | 'updateBridgeProtocolFee'
-      | 'updateFlashloanPremiums'
-      | 'withdraw',
+      | "ADDRESSES_PROVIDER"
+      | "BRIDGE_PROTOCOL_FEE"
+      | "FLASHLOAN_PREMIUM_TOTAL"
+      | "FLASHLOAN_PREMIUM_TO_PROTOCOL"
+      | "MAX_NUMBER_RESERVES"
+      | "MAX_STABLE_RATE_BORROW_SIZE_PERCENT"
+      | "backUnbacked"
+      | "borrow"
+      | "configureEModeCategory"
+      | "deposit"
+      | "dropReserve"
+      | "finalizeTransfer"
+      | "flashLoan"
+      | "flashLoanSimple"
+      | "getConfiguration"
+      | "getEModeCategoryData"
+      | "getReserveAddressById"
+      | "getReserveData"
+      | "getReserveNormalizedIncome"
+      | "getReserveNormalizedVariableDebt"
+      | "getReservesList"
+      | "getUserAccountData"
+      | "getUserConfiguration"
+      | "getUserEMode"
+      | "initReserve"
+      | "liquidationCall"
+      | "mintToTreasury"
+      | "mintUnbacked"
+      | "rebalanceStableBorrowRate"
+      | "repay"
+      | "repayWithATokens"
+      | "repayWithPermit"
+      | "rescueTokens"
+      | "resetIsolationModeTotalDebt"
+      | "setConfiguration"
+      | "setReserveInterestRateStrategyAddress"
+      | "setUserEMode"
+      | "setUserUseReserveAsCollateral"
+      | "supply"
+      | "supplyWithPermit"
+      | "swapBorrowRateMode"
+      | "updateBridgeProtocolFee"
+      | "updateFlashloanPremiums"
+      | "withdraw"
   ): FunctionFragment;
 
   getEvent(
     nameOrSignatureOrTopic:
-      | 'BackUnbacked'
-      | 'Borrow'
-      | 'FlashLoan'
-      | 'IsolationModeTotalDebtUpdated'
-      | 'LiquidationCall'
-      | 'MintUnbacked'
-      | 'MintedToTreasury'
-      | 'RebalanceStableBorrowRate'
-      | 'Repay'
-      | 'ReserveDataUpdated'
-      | 'ReserveUsedAsCollateralDisabled'
-      | 'ReserveUsedAsCollateralEnabled'
-      | 'Supply'
-      | 'SwapBorrowRateMode'
-      | 'UserEModeSet'
-      | 'Withdraw',
+      | "BackUnbacked"
+      | "Borrow"
+      | "FlashLoan"
+      | "IsolationModeTotalDebtUpdated"
+      | "LiquidationCall"
+      | "MintUnbacked"
+      | "MintedToTreasury"
+      | "RebalanceStableBorrowRate"
+      | "Repay"
+      | "ReserveDataUpdated"
+      | "ReserveUsedAsCollateralDisabled"
+      | "ReserveUsedAsCollateralEnabled"
+      | "Supply"
+      | "SwapBorrowRateMode"
+      | "UserEModeSet"
+      | "Withdraw"
   ): EventFragment;
 
-  encodeFunctionData(functionFragment: 'ADDRESSES_PROVIDER', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'BRIDGE_PROTOCOL_FEE', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'FLASHLOAN_PREMIUM_TOTAL', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'FLASHLOAN_PREMIUM_TO_PROTOCOL', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'MAX_NUMBER_RESERVES', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: 'MAX_STABLE_RATE_BORROW_SIZE_PERCENT',
-    values?: undefined,
+    functionFragment: "ADDRESSES_PROVIDER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'backUnbacked',
-    values: [AddressLike, BigNumberish, BigNumberish],
+    functionFragment: "BRIDGE_PROTOCOL_FEE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'borrow',
-    values: [AddressLike, BigNumberish, BigNumberish, BigNumberish, AddressLike],
+    functionFragment: "FLASHLOAN_PREMIUM_TOTAL",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'configureEModeCategory',
-    values: [BigNumberish, DataTypes.EModeCategoryStruct],
+    functionFragment: "FLASHLOAN_PREMIUM_TO_PROTOCOL",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'deposit',
-    values: [AddressLike, BigNumberish, AddressLike, BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'dropReserve', values: [AddressLike]): string;
-  encodeFunctionData(
-    functionFragment: 'finalizeTransfer',
-    values: [AddressLike, AddressLike, AddressLike, BigNumberish, BigNumberish, BigNumberish],
+    functionFragment: "MAX_NUMBER_RESERVES",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'flashLoan',
+    functionFragment: "MAX_STABLE_RATE_BORROW_SIZE_PERCENT",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "backUnbacked",
+    values: [AddressLike, BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "borrow",
+    values: [AddressLike, BigNumberish, BigNumberish, BigNumberish, AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "configureEModeCategory",
+    values: [BigNumberish, DataTypes.EModeCategoryStruct]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "deposit",
+    values: [AddressLike, BigNumberish, AddressLike, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "dropReserve",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "finalizeTransfer",
+    values: [
+      AddressLike,
+      AddressLike,
+      AddressLike,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish
+    ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "flashLoan",
     values: [
       AddressLike,
       AddressLike[],
@@ -219,53 +244,83 @@ export interface IPoolV3Interface extends Interface {
       BigNumberish[],
       AddressLike,
       BytesLike,
-      BigNumberish,
-    ],
+      BigNumberish
+    ]
   ): string;
   encodeFunctionData(
-    functionFragment: 'flashLoanSimple',
-    values: [AddressLike, AddressLike, BigNumberish, BytesLike, BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'getConfiguration', values: [AddressLike]): string;
-  encodeFunctionData(functionFragment: 'getEModeCategoryData', values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: 'getReserveAddressById', values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: 'getReserveData', values: [AddressLike]): string;
-  encodeFunctionData(functionFragment: 'getReserveNormalizedIncome', values: [AddressLike]): string;
-  encodeFunctionData(
-    functionFragment: 'getReserveNormalizedVariableDebt',
-    values: [AddressLike],
-  ): string;
-  encodeFunctionData(functionFragment: 'getReservesList', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'getUserAccountData', values: [AddressLike]): string;
-  encodeFunctionData(functionFragment: 'getUserConfiguration', values: [AddressLike]): string;
-  encodeFunctionData(functionFragment: 'getUserEMode', values: [AddressLike]): string;
-  encodeFunctionData(
-    functionFragment: 'initReserve',
-    values: [AddressLike, AddressLike, AddressLike, AddressLike, AddressLike],
+    functionFragment: "flashLoanSimple",
+    values: [AddressLike, AddressLike, BigNumberish, BytesLike, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'liquidationCall',
-    values: [AddressLike, AddressLike, AddressLike, BigNumberish, boolean],
-  ): string;
-  encodeFunctionData(functionFragment: 'mintToTreasury', values: [AddressLike[]]): string;
-  encodeFunctionData(
-    functionFragment: 'mintUnbacked',
-    values: [AddressLike, BigNumberish, AddressLike, BigNumberish],
+    functionFragment: "getConfiguration",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: 'rebalanceStableBorrowRate',
-    values: [AddressLike, AddressLike],
+    functionFragment: "getEModeCategoryData",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'repay',
-    values: [AddressLike, BigNumberish, BigNumberish, AddressLike],
+    functionFragment: "getReserveAddressById",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'repayWithATokens',
-    values: [AddressLike, BigNumberish, BigNumberish],
+    functionFragment: "getReserveData",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: 'repayWithPermit',
+    functionFragment: "getReserveNormalizedIncome",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getReserveNormalizedVariableDebt",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getReservesList",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUserAccountData",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUserConfiguration",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUserEMode",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "initReserve",
+    values: [AddressLike, AddressLike, AddressLike, AddressLike, AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "liquidationCall",
+    values: [AddressLike, AddressLike, AddressLike, BigNumberish, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mintToTreasury",
+    values: [AddressLike[]]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mintUnbacked",
+    values: [AddressLike, BigNumberish, AddressLike, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "rebalanceStableBorrowRate",
+    values: [AddressLike, AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "repay",
+    values: [AddressLike, BigNumberish, BigNumberish, AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "repayWithATokens",
+    values: [AddressLike, BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "repayWithPermit",
     values: [
       AddressLike,
       BigNumberish,
@@ -274,36 +329,39 @@ export interface IPoolV3Interface extends Interface {
       BigNumberish,
       BigNumberish,
       BytesLike,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
   encodeFunctionData(
-    functionFragment: 'rescueTokens',
-    values: [AddressLike, AddressLike, BigNumberish],
+    functionFragment: "rescueTokens",
+    values: [AddressLike, AddressLike, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'resetIsolationModeTotalDebt',
-    values: [AddressLike],
+    functionFragment: "resetIsolationModeTotalDebt",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: 'setConfiguration',
-    values: [AddressLike, DataTypes.ReserveConfigurationMapStruct],
+    functionFragment: "setConfiguration",
+    values: [AddressLike, DataTypes.ReserveConfigurationMapStruct]
   ): string;
   encodeFunctionData(
-    functionFragment: 'setReserveInterestRateStrategyAddress',
-    values: [AddressLike, AddressLike],
-  ): string;
-  encodeFunctionData(functionFragment: 'setUserEMode', values: [BigNumberish]): string;
-  encodeFunctionData(
-    functionFragment: 'setUserUseReserveAsCollateral',
-    values: [AddressLike, boolean],
+    functionFragment: "setReserveInterestRateStrategyAddress",
+    values: [AddressLike, AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: 'supply',
-    values: [AddressLike, BigNumberish, AddressLike, BigNumberish],
+    functionFragment: "setUserEMode",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'supplyWithPermit',
+    functionFragment: "setUserUseReserveAsCollateral",
+    values: [AddressLike, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "supply",
+    values: [AddressLike, BigNumberish, AddressLike, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "supplyWithPermit",
     values: [
       AddressLike,
       BigNumberish,
@@ -312,76 +370,184 @@ export interface IPoolV3Interface extends Interface {
       BigNumberish,
       BigNumberish,
       BytesLike,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
   encodeFunctionData(
-    functionFragment: 'swapBorrowRateMode',
-    values: [AddressLike, BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'updateBridgeProtocolFee', values: [BigNumberish]): string;
-  encodeFunctionData(
-    functionFragment: 'updateFlashloanPremiums',
-    values: [BigNumberish, BigNumberish],
+    functionFragment: "swapBorrowRateMode",
+    values: [AddressLike, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'withdraw',
-    values: [AddressLike, BigNumberish, AddressLike],
+    functionFragment: "updateBridgeProtocolFee",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "updateFlashloanPremiums",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "withdraw",
+    values: [AddressLike, BigNumberish, AddressLike]
   ): string;
 
-  decodeFunctionResult(functionFragment: 'ADDRESSES_PROVIDER', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'BRIDGE_PROTOCOL_FEE', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'FLASHLOAN_PREMIUM_TOTAL', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'FLASHLOAN_PREMIUM_TO_PROTOCOL', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'MAX_NUMBER_RESERVES', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_STABLE_RATE_BORROW_SIZE_PERCENT',
-    data: BytesLike,
+    functionFragment: "ADDRESSES_PROVIDER",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'backUnbacked', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'borrow', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'configureEModeCategory', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'deposit', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'dropReserve', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'finalizeTransfer', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'flashLoan', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'flashLoanSimple', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getConfiguration', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getEModeCategoryData', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getReserveAddressById', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getReserveData', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getReserveNormalizedIncome', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'getReserveNormalizedVariableDebt',
-    data: BytesLike,
+    functionFragment: "BRIDGE_PROTOCOL_FEE",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'getReservesList', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getUserAccountData', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getUserConfiguration', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'getUserEMode', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'initReserve', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'liquidationCall', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'mintToTreasury', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'mintUnbacked', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'rebalanceStableBorrowRate', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'repay', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'repayWithATokens', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'repayWithPermit', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'rescueTokens', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'resetIsolationModeTotalDebt', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'setConfiguration', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'setReserveInterestRateStrategyAddress',
-    data: BytesLike,
+    functionFragment: "FLASHLOAN_PREMIUM_TOTAL",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'setUserEMode', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'setUserUseReserveAsCollateral', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'supply', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'supplyWithPermit', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'swapBorrowRateMode', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'updateBridgeProtocolFee', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'updateFlashloanPremiums', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'withdraw', data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "FLASHLOAN_PREMIUM_TO_PROTOCOL",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MAX_NUMBER_RESERVES",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MAX_STABLE_RATE_BORROW_SIZE_PERCENT",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "backUnbacked",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "borrow", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "configureEModeCategory",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "dropReserve",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "finalizeTransfer",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "flashLoan", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "flashLoanSimple",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getConfiguration",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getEModeCategoryData",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getReserveAddressById",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getReserveData",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getReserveNormalizedIncome",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getReserveNormalizedVariableDebt",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getReservesList",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUserAccountData",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUserConfiguration",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUserEMode",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "initReserve",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "liquidationCall",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "mintToTreasury",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "mintUnbacked",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "rebalanceStableBorrowRate",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "repay", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "repayWithATokens",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "repayWithPermit",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "rescueTokens",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "resetIsolationModeTotalDebt",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setConfiguration",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setReserveInterestRateStrategyAddress",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setUserEMode",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setUserUseReserveAsCollateral",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "supply", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "supplyWithPermit",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "swapBorrowRateMode",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "updateBridgeProtocolFee",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "updateFlashloanPremiums",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 }
 
 export namespace BackUnbackedEvent {
@@ -389,9 +555,14 @@ export namespace BackUnbackedEvent {
     reserve: AddressLike,
     backer: AddressLike,
     amount: BigNumberish,
-    fee: BigNumberish,
+    fee: BigNumberish
   ];
-  export type OutputTuple = [reserve: string, backer: string, amount: bigint, fee: bigint];
+  export type OutputTuple = [
+    reserve: string,
+    backer: string,
+    amount: bigint,
+    fee: bigint
+  ];
   export interface OutputObject {
     reserve: string;
     backer: string;
@@ -412,7 +583,7 @@ export namespace BorrowEvent {
     amount: BigNumberish,
     interestRateMode: BigNumberish,
     borrowRate: BigNumberish,
-    referralCode: BigNumberish,
+    referralCode: BigNumberish
   ];
   export type OutputTuple = [
     reserve: string,
@@ -421,7 +592,7 @@ export namespace BorrowEvent {
     amount: bigint,
     interestRateMode: bigint,
     borrowRate: bigint,
-    referralCode: bigint,
+    referralCode: bigint
   ];
   export interface OutputObject {
     reserve: string;
@@ -446,7 +617,7 @@ export namespace FlashLoanEvent {
     amount: BigNumberish,
     interestRateMode: BigNumberish,
     premium: BigNumberish,
-    referralCode: BigNumberish,
+    referralCode: BigNumberish
   ];
   export type OutputTuple = [
     target: string,
@@ -455,7 +626,7 @@ export namespace FlashLoanEvent {
     amount: bigint,
     interestRateMode: bigint,
     premium: bigint,
-    referralCode: bigint,
+    referralCode: bigint
   ];
   export interface OutputObject {
     target: string;
@@ -493,7 +664,7 @@ export namespace LiquidationCallEvent {
     debtToCover: BigNumberish,
     liquidatedCollateralAmount: BigNumberish,
     liquidator: AddressLike,
-    receiveAToken: boolean,
+    receiveAToken: boolean
   ];
   export type OutputTuple = [
     collateralAsset: string,
@@ -502,7 +673,7 @@ export namespace LiquidationCallEvent {
     debtToCover: bigint,
     liquidatedCollateralAmount: bigint,
     liquidator: string,
-    receiveAToken: boolean,
+    receiveAToken: boolean
   ];
   export interface OutputObject {
     collateralAsset: string;
@@ -525,14 +696,14 @@ export namespace MintUnbackedEvent {
     user: AddressLike,
     onBehalfOf: AddressLike,
     amount: BigNumberish,
-    referralCode: BigNumberish,
+    referralCode: BigNumberish
   ];
   export type OutputTuple = [
     reserve: string,
     user: string,
     onBehalfOf: string,
     amount: bigint,
-    referralCode: bigint,
+    referralCode: bigint
   ];
   export interface OutputObject {
     reserve: string;
@@ -579,14 +750,14 @@ export namespace RepayEvent {
     user: AddressLike,
     repayer: AddressLike,
     amount: BigNumberish,
-    useATokens: boolean,
+    useATokens: boolean
   ];
   export type OutputTuple = [
     reserve: string,
     user: string,
     repayer: string,
     amount: bigint,
-    useATokens: boolean,
+    useATokens: boolean
   ];
   export interface OutputObject {
     reserve: string;
@@ -608,7 +779,7 @@ export namespace ReserveDataUpdatedEvent {
     stableBorrowRate: BigNumberish,
     variableBorrowRate: BigNumberish,
     liquidityIndex: BigNumberish,
-    variableBorrowIndex: BigNumberish,
+    variableBorrowIndex: BigNumberish
   ];
   export type OutputTuple = [
     reserve: string,
@@ -616,7 +787,7 @@ export namespace ReserveDataUpdatedEvent {
     stableBorrowRate: bigint,
     variableBorrowRate: bigint,
     liquidityIndex: bigint,
-    variableBorrowIndex: bigint,
+    variableBorrowIndex: bigint
   ];
   export interface OutputObject {
     reserve: string;
@@ -664,14 +835,14 @@ export namespace SupplyEvent {
     user: AddressLike,
     onBehalfOf: AddressLike,
     amount: BigNumberish,
-    referralCode: BigNumberish,
+    referralCode: BigNumberish
   ];
   export type OutputTuple = [
     reserve: string,
     user: string,
     onBehalfOf: string,
     amount: bigint,
-    referralCode: bigint,
+    referralCode: bigint
   ];
   export interface OutputObject {
     reserve: string;
@@ -690,9 +861,13 @@ export namespace SwapBorrowRateModeEvent {
   export type InputTuple = [
     reserve: AddressLike,
     user: AddressLike,
-    interestRateMode: BigNumberish,
+    interestRateMode: BigNumberish
   ];
-  export type OutputTuple = [reserve: string, user: string, interestRateMode: bigint];
+  export type OutputTuple = [
+    reserve: string,
+    user: string,
+    interestRateMode: bigint
+  ];
   export interface OutputObject {
     reserve: string;
     user: string;
@@ -722,9 +897,14 @@ export namespace WithdrawEvent {
     reserve: AddressLike,
     user: AddressLike,
     to: AddressLike,
-    amount: BigNumberish,
+    amount: BigNumberish
   ];
-  export type OutputTuple = [reserve: string, user: string, to: string, amount: bigint];
+  export type OutputTuple = [
+    reserve: string,
+    user: string,
+    to: string,
+    amount: bigint
+  ];
   export interface OutputObject {
     reserve: string;
     user: string;
@@ -746,54 +926,60 @@ export interface IPoolV3 extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
-  removeAllListeners<TCEvent extends TypedContractEvent>(event?: TCEvent): Promise<this>;
+  removeAllListeners<TCEvent extends TypedContractEvent>(
+    event?: TCEvent
+  ): Promise<this>;
 
-  ADDRESSES_PROVIDER: TypedContractMethod<[], [string], 'view'>;
+  ADDRESSES_PROVIDER: TypedContractMethod<[], [string], "view">;
 
-  BRIDGE_PROTOCOL_FEE: TypedContractMethod<[], [bigint], 'view'>;
+  BRIDGE_PROTOCOL_FEE: TypedContractMethod<[], [bigint], "view">;
 
-  FLASHLOAN_PREMIUM_TOTAL: TypedContractMethod<[], [bigint], 'view'>;
+  FLASHLOAN_PREMIUM_TOTAL: TypedContractMethod<[], [bigint], "view">;
 
-  FLASHLOAN_PREMIUM_TO_PROTOCOL: TypedContractMethod<[], [bigint], 'view'>;
+  FLASHLOAN_PREMIUM_TO_PROTOCOL: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_NUMBER_RESERVES: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_NUMBER_RESERVES: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_STABLE_RATE_BORROW_SIZE_PERCENT: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_STABLE_RATE_BORROW_SIZE_PERCENT: TypedContractMethod<
+    [],
+    [bigint],
+    "view"
+  >;
 
   backUnbacked: TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, fee: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   borrow: TypedContractMethod<
@@ -802,25 +988,30 @@ export interface IPoolV3 extends BaseContract {
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
-      onBehalfOf: AddressLike,
+      onBehalfOf: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   configureEModeCategory: TypedContractMethod<
     [id: BigNumberish, config: DataTypes.EModeCategoryStruct],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   deposit: TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  dropReserve: TypedContractMethod<[asset: AddressLike], [void], 'nonpayable'>;
+  dropReserve: TypedContractMethod<[asset: AddressLike], [void], "nonpayable">;
 
   finalizeTransfer: TypedContractMethod<
     [
@@ -829,10 +1020,10 @@ export interface IPoolV3 extends BaseContract {
       to: AddressLike,
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
-      balanceToBefore: BigNumberish,
+      balanceToBefore: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   flashLoan: TypedContractMethod<
@@ -843,10 +1034,10 @@ export interface IPoolV3 extends BaseContract {
       interestRateModes: BigNumberish[],
       onBehalfOf: AddressLike,
       params: BytesLike,
-      referralCode: BigNumberish,
+      referralCode: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   flashLoanSimple: TypedContractMethod<
@@ -855,37 +1046,49 @@ export interface IPoolV3 extends BaseContract {
       asset: AddressLike,
       amount: BigNumberish,
       params: BytesLike,
-      referralCode: BigNumberish,
+      referralCode: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   getConfiguration: TypedContractMethod<
     [asset: AddressLike],
     [DataTypes.ReserveConfigurationMapStructOutput],
-    'view'
+    "view"
   >;
 
   getEModeCategoryData: TypedContractMethod<
     [id: BigNumberish],
     [DataTypes.EModeCategoryStructOutput],
-    'view'
+    "view"
   >;
 
-  getReserveAddressById: TypedContractMethod<[id: BigNumberish], [string], 'view'>;
+  getReserveAddressById: TypedContractMethod<
+    [id: BigNumberish],
+    [string],
+    "view"
+  >;
 
   getReserveData: TypedContractMethod<
     [asset: AddressLike],
     [DataTypes.ReserveDataStructOutput],
-    'view'
+    "view"
   >;
 
-  getReserveNormalizedIncome: TypedContractMethod<[asset: AddressLike], [bigint], 'view'>;
+  getReserveNormalizedIncome: TypedContractMethod<
+    [asset: AddressLike],
+    [bigint],
+    "view"
+  >;
 
-  getReserveNormalizedVariableDebt: TypedContractMethod<[asset: AddressLike], [bigint], 'view'>;
+  getReserveNormalizedVariableDebt: TypedContractMethod<
+    [asset: AddressLike],
+    [bigint],
+    "view"
+  >;
 
-  getReservesList: TypedContractMethod<[], [string[]], 'view'>;
+  getReservesList: TypedContractMethod<[], [string[]], "view">;
 
   getUserAccountData: TypedContractMethod<
     [user: AddressLike],
@@ -897,18 +1100,18 @@ export interface IPoolV3 extends BaseContract {
         currentLiquidationThreshold: bigint;
         ltv: bigint;
         healthFactor: bigint;
-      },
+      }
     ],
-    'view'
+    "view"
   >;
 
   getUserConfiguration: TypedContractMethod<
     [user: AddressLike],
     [DataTypes.UserConfigurationMapStructOutput],
-    'view'
+    "view"
   >;
 
-  getUserEMode: TypedContractMethod<[user: AddressLike], [bigint], 'view'>;
+  getUserEMode: TypedContractMethod<[user: AddressLike], [bigint], "view">;
 
   initReserve: TypedContractMethod<
     [
@@ -916,10 +1119,10 @@ export interface IPoolV3 extends BaseContract {
       aTokenAddress: AddressLike,
       stableDebtAddress: AddressLike,
       variableDebtAddress: AddressLike,
-      interestRateStrategyAddress: AddressLike,
+      interestRateStrategyAddress: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   liquidationCall: TypedContractMethod<
@@ -928,24 +1131,33 @@ export interface IPoolV3 extends BaseContract {
       debtAsset: AddressLike,
       user: AddressLike,
       debtToCover: BigNumberish,
-      receiveAToken: boolean,
+      receiveAToken: boolean
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  mintToTreasury: TypedContractMethod<[assets: AddressLike[]], [void], 'nonpayable'>;
+  mintToTreasury: TypedContractMethod<
+    [assets: AddressLike[]],
+    [void],
+    "nonpayable"
+  >;
 
   mintUnbacked: TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   rebalanceStableBorrowRate: TypedContractMethod<
     [asset: AddressLike, user: AddressLike],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   repay: TypedContractMethod<
@@ -953,16 +1165,16 @@ export interface IPoolV3 extends BaseContract {
       asset: AddressLike,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      onBehalfOf: AddressLike,
+      onBehalfOf: AddressLike
     ],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
 
   repayWithATokens: TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, interestRateMode: BigNumberish],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
 
   repayWithPermit: TypedContractMethod<
@@ -974,44 +1186,60 @@ export interface IPoolV3 extends BaseContract {
       deadline: BigNumberish,
       permitV: BigNumberish,
       permitR: BytesLike,
-      permitS: BytesLike,
+      permitS: BytesLike
     ],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
 
   rescueTokens: TypedContractMethod<
     [token: AddressLike, to: AddressLike, amount: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  resetIsolationModeTotalDebt: TypedContractMethod<[asset: AddressLike], [void], 'nonpayable'>;
+  resetIsolationModeTotalDebt: TypedContractMethod<
+    [asset: AddressLike],
+    [void],
+    "nonpayable"
+  >;
 
   setConfiguration: TypedContractMethod<
-    [asset: AddressLike, configuration: DataTypes.ReserveConfigurationMapStruct],
+    [
+      asset: AddressLike,
+      configuration: DataTypes.ReserveConfigurationMapStruct
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   setReserveInterestRateStrategyAddress: TypedContractMethod<
     [asset: AddressLike, rateStrategyAddress: AddressLike],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  setUserEMode: TypedContractMethod<[categoryId: BigNumberish], [void], 'nonpayable'>;
+  setUserEMode: TypedContractMethod<
+    [categoryId: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
 
   setUserUseReserveAsCollateral: TypedContractMethod<
     [asset: AddressLike, useAsCollateral: boolean],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   supply: TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   supplyWithPermit: TypedContractMethod<
@@ -1023,89 +1251,105 @@ export interface IPoolV3 extends BaseContract {
       deadline: BigNumberish,
       permitV: BigNumberish,
       permitR: BytesLike,
-      permitS: BytesLike,
+      permitS: BytesLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   swapBorrowRateMode: TypedContractMethod<
     [asset: AddressLike, interestRateMode: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   updateBridgeProtocolFee: TypedContractMethod<
     [bridgeProtocolFee: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   updateFlashloanPremiums: TypedContractMethod<
-    [flashLoanPremiumTotal: BigNumberish, flashLoanPremiumToProtocol: BigNumberish],
+    [
+      flashLoanPremiumTotal: BigNumberish,
+      flashLoanPremiumToProtocol: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   withdraw: TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, to: AddressLike],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  getFunction<T extends ContractMethod = ContractMethod>(key: string | FunctionFragment): T;
+  getFunction<T extends ContractMethod = ContractMethod>(
+    key: string | FunctionFragment
+  ): T;
 
-  getFunction(nameOrSignature: 'ADDRESSES_PROVIDER'): TypedContractMethod<[], [string], 'view'>;
-  getFunction(nameOrSignature: 'BRIDGE_PROTOCOL_FEE'): TypedContractMethod<[], [bigint], 'view'>;
   getFunction(
-    nameOrSignature: 'FLASHLOAN_PREMIUM_TOTAL',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "ADDRESSES_PROVIDER"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'FLASHLOAN_PREMIUM_TO_PROTOCOL',
-  ): TypedContractMethod<[], [bigint], 'view'>;
-  getFunction(nameOrSignature: 'MAX_NUMBER_RESERVES'): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "BRIDGE_PROTOCOL_FEE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_STABLE_RATE_BORROW_SIZE_PERCENT',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "FLASHLOAN_PREMIUM_TOTAL"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'backUnbacked',
+    nameOrSignature: "FLASHLOAN_PREMIUM_TO_PROTOCOL"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "MAX_NUMBER_RESERVES"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "MAX_STABLE_RATE_BORROW_SIZE_PERCENT"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "backUnbacked"
   ): TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, fee: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'borrow',
+    nameOrSignature: "borrow"
   ): TypedContractMethod<
     [
       asset: AddressLike,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
-      onBehalfOf: AddressLike,
+      onBehalfOf: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'configureEModeCategory',
+    nameOrSignature: "configureEModeCategory"
   ): TypedContractMethod<
     [id: BigNumberish, config: DataTypes.EModeCategoryStruct],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'deposit',
+    nameOrSignature: "deposit"
   ): TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'dropReserve',
-  ): TypedContractMethod<[asset: AddressLike], [void], 'nonpayable'>;
+    nameOrSignature: "dropReserve"
+  ): TypedContractMethod<[asset: AddressLike], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'finalizeTransfer',
+    nameOrSignature: "finalizeTransfer"
   ): TypedContractMethod<
     [
       asset: AddressLike,
@@ -1113,13 +1357,13 @@ export interface IPoolV3 extends BaseContract {
       to: AddressLike,
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
-      balanceToBefore: BigNumberish,
+      balanceToBefore: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'flashLoan',
+    nameOrSignature: "flashLoan"
   ): TypedContractMethod<
     [
       receiverAddress: AddressLike,
@@ -1128,48 +1372,60 @@ export interface IPoolV3 extends BaseContract {
       interestRateModes: BigNumberish[],
       onBehalfOf: AddressLike,
       params: BytesLike,
-      referralCode: BigNumberish,
+      referralCode: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'flashLoanSimple',
+    nameOrSignature: "flashLoanSimple"
   ): TypedContractMethod<
     [
       receiverAddress: AddressLike,
       asset: AddressLike,
       amount: BigNumberish,
       params: BytesLike,
-      referralCode: BigNumberish,
+      referralCode: BigNumberish
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'getConfiguration',
+    nameOrSignature: "getConfiguration"
   ): TypedContractMethod<
     [asset: AddressLike],
     [DataTypes.ReserveConfigurationMapStructOutput],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getEModeCategoryData',
-  ): TypedContractMethod<[id: BigNumberish], [DataTypes.EModeCategoryStructOutput], 'view'>;
+    nameOrSignature: "getEModeCategoryData"
+  ): TypedContractMethod<
+    [id: BigNumberish],
+    [DataTypes.EModeCategoryStructOutput],
+    "view"
+  >;
   getFunction(
-    nameOrSignature: 'getReserveAddressById',
-  ): TypedContractMethod<[id: BigNumberish], [string], 'view'>;
+    nameOrSignature: "getReserveAddressById"
+  ): TypedContractMethod<[id: BigNumberish], [string], "view">;
   getFunction(
-    nameOrSignature: 'getReserveData',
-  ): TypedContractMethod<[asset: AddressLike], [DataTypes.ReserveDataStructOutput], 'view'>;
+    nameOrSignature: "getReserveData"
+  ): TypedContractMethod<
+    [asset: AddressLike],
+    [DataTypes.ReserveDataStructOutput],
+    "view"
+  >;
   getFunction(
-    nameOrSignature: 'getReserveNormalizedIncome',
-  ): TypedContractMethod<[asset: AddressLike], [bigint], 'view'>;
+    nameOrSignature: "getReserveNormalizedIncome"
+  ): TypedContractMethod<[asset: AddressLike], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'getReserveNormalizedVariableDebt',
-  ): TypedContractMethod<[asset: AddressLike], [bigint], 'view'>;
-  getFunction(nameOrSignature: 'getReservesList'): TypedContractMethod<[], [string[]], 'view'>;
-  getFunction(nameOrSignature: 'getUserAccountData'): TypedContractMethod<
+    nameOrSignature: "getReserveNormalizedVariableDebt"
+  ): TypedContractMethod<[asset: AddressLike], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "getReservesList"
+  ): TypedContractMethod<[], [string[]], "view">;
+  getFunction(
+    nameOrSignature: "getUserAccountData"
+  ): TypedContractMethod<
     [user: AddressLike],
     [
       [bigint, bigint, bigint, bigint, bigint, bigint] & {
@@ -1179,76 +1435,89 @@ export interface IPoolV3 extends BaseContract {
         currentLiquidationThreshold: bigint;
         ltv: bigint;
         healthFactor: bigint;
-      },
+      }
     ],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getUserConfiguration',
-  ): TypedContractMethod<[user: AddressLike], [DataTypes.UserConfigurationMapStructOutput], 'view'>;
+    nameOrSignature: "getUserConfiguration"
+  ): TypedContractMethod<
+    [user: AddressLike],
+    [DataTypes.UserConfigurationMapStructOutput],
+    "view"
+  >;
   getFunction(
-    nameOrSignature: 'getUserEMode',
-  ): TypedContractMethod<[user: AddressLike], [bigint], 'view'>;
+    nameOrSignature: "getUserEMode"
+  ): TypedContractMethod<[user: AddressLike], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'initReserve',
+    nameOrSignature: "initReserve"
   ): TypedContractMethod<
     [
       asset: AddressLike,
       aTokenAddress: AddressLike,
       stableDebtAddress: AddressLike,
       variableDebtAddress: AddressLike,
-      interestRateStrategyAddress: AddressLike,
+      interestRateStrategyAddress: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'liquidationCall',
+    nameOrSignature: "liquidationCall"
   ): TypedContractMethod<
     [
       collateralAsset: AddressLike,
       debtAsset: AddressLike,
       user: AddressLike,
       debtToCover: BigNumberish,
-      receiveAToken: boolean,
+      receiveAToken: boolean
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'mintToTreasury',
-  ): TypedContractMethod<[assets: AddressLike[]], [void], 'nonpayable'>;
+    nameOrSignature: "mintToTreasury"
+  ): TypedContractMethod<[assets: AddressLike[]], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'mintUnbacked',
+    nameOrSignature: "mintUnbacked"
   ): TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'rebalanceStableBorrowRate',
-  ): TypedContractMethod<[asset: AddressLike, user: AddressLike], [void], 'nonpayable'>;
+    nameOrSignature: "rebalanceStableBorrowRate"
+  ): TypedContractMethod<
+    [asset: AddressLike, user: AddressLike],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
-    nameOrSignature: 'repay',
+    nameOrSignature: "repay"
   ): TypedContractMethod<
     [
       asset: AddressLike,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      onBehalfOf: AddressLike,
+      onBehalfOf: AddressLike
     ],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'repayWithATokens',
+    nameOrSignature: "repayWithATokens"
   ): TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, interestRateMode: BigNumberish],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'repayWithPermit',
+    nameOrSignature: "repayWithPermit"
   ): TypedContractMethod<
     [
       asset: AddressLike,
@@ -1258,50 +1527,62 @@ export interface IPoolV3 extends BaseContract {
       deadline: BigNumberish,
       permitV: BigNumberish,
       permitR: BytesLike,
-      permitS: BytesLike,
+      permitS: BytesLike
     ],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'rescueTokens',
+    nameOrSignature: "rescueTokens"
   ): TypedContractMethod<
     [token: AddressLike, to: AddressLike, amount: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'resetIsolationModeTotalDebt',
-  ): TypedContractMethod<[asset: AddressLike], [void], 'nonpayable'>;
+    nameOrSignature: "resetIsolationModeTotalDebt"
+  ): TypedContractMethod<[asset: AddressLike], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'setConfiguration',
+    nameOrSignature: "setConfiguration"
   ): TypedContractMethod<
-    [asset: AddressLike, configuration: DataTypes.ReserveConfigurationMapStruct],
+    [
+      asset: AddressLike,
+      configuration: DataTypes.ReserveConfigurationMapStruct
+    ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'setReserveInterestRateStrategyAddress',
+    nameOrSignature: "setReserveInterestRateStrategyAddress"
   ): TypedContractMethod<
     [asset: AddressLike, rateStrategyAddress: AddressLike],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'setUserEMode',
-  ): TypedContractMethod<[categoryId: BigNumberish], [void], 'nonpayable'>;
+    nameOrSignature: "setUserEMode"
+  ): TypedContractMethod<[categoryId: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'setUserUseReserveAsCollateral',
-  ): TypedContractMethod<[asset: AddressLike, useAsCollateral: boolean], [void], 'nonpayable'>;
-  getFunction(
-    nameOrSignature: 'supply',
+    nameOrSignature: "setUserUseReserveAsCollateral"
   ): TypedContractMethod<
-    [asset: AddressLike, amount: BigNumberish, onBehalfOf: AddressLike, referralCode: BigNumberish],
+    [asset: AddressLike, useAsCollateral: boolean],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'supplyWithPermit',
+    nameOrSignature: "supply"
+  ): TypedContractMethod<
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      onBehalfOf: AddressLike,
+      referralCode: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "supplyWithPermit"
   ): TypedContractMethod<
     [
       asset: AddressLike,
@@ -1311,131 +1592,150 @@ export interface IPoolV3 extends BaseContract {
       deadline: BigNumberish,
       permitV: BigNumberish,
       permitR: BytesLike,
-      permitS: BytesLike,
+      permitS: BytesLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'swapBorrowRateMode',
+    nameOrSignature: "swapBorrowRateMode"
   ): TypedContractMethod<
     [asset: AddressLike, interestRateMode: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'updateBridgeProtocolFee',
-  ): TypedContractMethod<[bridgeProtocolFee: BigNumberish], [void], 'nonpayable'>;
-  getFunction(
-    nameOrSignature: 'updateFlashloanPremiums',
+    nameOrSignature: "updateBridgeProtocolFee"
   ): TypedContractMethod<
-    [flashLoanPremiumTotal: BigNumberish, flashLoanPremiumToProtocol: BigNumberish],
+    [bridgeProtocolFee: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'withdraw',
+    nameOrSignature: "updateFlashloanPremiums"
+  ): TypedContractMethod<
+    [
+      flashLoanPremiumTotal: BigNumberish,
+      flashLoanPremiumToProtocol: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "withdraw"
   ): TypedContractMethod<
     [asset: AddressLike, amount: BigNumberish, to: AddressLike],
     [bigint],
-    'nonpayable'
+    "nonpayable"
   >;
 
   getEvent(
-    key: 'BackUnbacked',
+    key: "BackUnbacked"
   ): TypedContractEvent<
     BackUnbackedEvent.InputTuple,
     BackUnbackedEvent.OutputTuple,
     BackUnbackedEvent.OutputObject
   >;
   getEvent(
-    key: 'Borrow',
-  ): TypedContractEvent<BorrowEvent.InputTuple, BorrowEvent.OutputTuple, BorrowEvent.OutputObject>;
+    key: "Borrow"
+  ): TypedContractEvent<
+    BorrowEvent.InputTuple,
+    BorrowEvent.OutputTuple,
+    BorrowEvent.OutputObject
+  >;
   getEvent(
-    key: 'FlashLoan',
+    key: "FlashLoan"
   ): TypedContractEvent<
     FlashLoanEvent.InputTuple,
     FlashLoanEvent.OutputTuple,
     FlashLoanEvent.OutputObject
   >;
   getEvent(
-    key: 'IsolationModeTotalDebtUpdated',
+    key: "IsolationModeTotalDebtUpdated"
   ): TypedContractEvent<
     IsolationModeTotalDebtUpdatedEvent.InputTuple,
     IsolationModeTotalDebtUpdatedEvent.OutputTuple,
     IsolationModeTotalDebtUpdatedEvent.OutputObject
   >;
   getEvent(
-    key: 'LiquidationCall',
+    key: "LiquidationCall"
   ): TypedContractEvent<
     LiquidationCallEvent.InputTuple,
     LiquidationCallEvent.OutputTuple,
     LiquidationCallEvent.OutputObject
   >;
   getEvent(
-    key: 'MintUnbacked',
+    key: "MintUnbacked"
   ): TypedContractEvent<
     MintUnbackedEvent.InputTuple,
     MintUnbackedEvent.OutputTuple,
     MintUnbackedEvent.OutputObject
   >;
   getEvent(
-    key: 'MintedToTreasury',
+    key: "MintedToTreasury"
   ): TypedContractEvent<
     MintedToTreasuryEvent.InputTuple,
     MintedToTreasuryEvent.OutputTuple,
     MintedToTreasuryEvent.OutputObject
   >;
   getEvent(
-    key: 'RebalanceStableBorrowRate',
+    key: "RebalanceStableBorrowRate"
   ): TypedContractEvent<
     RebalanceStableBorrowRateEvent.InputTuple,
     RebalanceStableBorrowRateEvent.OutputTuple,
     RebalanceStableBorrowRateEvent.OutputObject
   >;
   getEvent(
-    key: 'Repay',
-  ): TypedContractEvent<RepayEvent.InputTuple, RepayEvent.OutputTuple, RepayEvent.OutputObject>;
+    key: "Repay"
+  ): TypedContractEvent<
+    RepayEvent.InputTuple,
+    RepayEvent.OutputTuple,
+    RepayEvent.OutputObject
+  >;
   getEvent(
-    key: 'ReserveDataUpdated',
+    key: "ReserveDataUpdated"
   ): TypedContractEvent<
     ReserveDataUpdatedEvent.InputTuple,
     ReserveDataUpdatedEvent.OutputTuple,
     ReserveDataUpdatedEvent.OutputObject
   >;
   getEvent(
-    key: 'ReserveUsedAsCollateralDisabled',
+    key: "ReserveUsedAsCollateralDisabled"
   ): TypedContractEvent<
     ReserveUsedAsCollateralDisabledEvent.InputTuple,
     ReserveUsedAsCollateralDisabledEvent.OutputTuple,
     ReserveUsedAsCollateralDisabledEvent.OutputObject
   >;
   getEvent(
-    key: 'ReserveUsedAsCollateralEnabled',
+    key: "ReserveUsedAsCollateralEnabled"
   ): TypedContractEvent<
     ReserveUsedAsCollateralEnabledEvent.InputTuple,
     ReserveUsedAsCollateralEnabledEvent.OutputTuple,
     ReserveUsedAsCollateralEnabledEvent.OutputObject
   >;
   getEvent(
-    key: 'Supply',
-  ): TypedContractEvent<SupplyEvent.InputTuple, SupplyEvent.OutputTuple, SupplyEvent.OutputObject>;
+    key: "Supply"
+  ): TypedContractEvent<
+    SupplyEvent.InputTuple,
+    SupplyEvent.OutputTuple,
+    SupplyEvent.OutputObject
+  >;
   getEvent(
-    key: 'SwapBorrowRateMode',
+    key: "SwapBorrowRateMode"
   ): TypedContractEvent<
     SwapBorrowRateModeEvent.InputTuple,
     SwapBorrowRateModeEvent.OutputTuple,
     SwapBorrowRateModeEvent.OutputObject
   >;
   getEvent(
-    key: 'UserEModeSet',
+    key: "UserEModeSet"
   ): TypedContractEvent<
     UserEModeSetEvent.InputTuple,
     UserEModeSetEvent.OutputTuple,
     UserEModeSetEvent.OutputObject
   >;
   getEvent(
-    key: 'Withdraw',
+    key: "Withdraw"
   ): TypedContractEvent<
     WithdrawEvent.InputTuple,
     WithdrawEvent.OutputTuple,
@@ -1443,7 +1743,7 @@ export interface IPoolV3 extends BaseContract {
   >;
 
   filters: {
-    'BackUnbacked(address,address,uint256,uint256)': TypedContractEvent<
+    "BackUnbacked(address,address,uint256,uint256)": TypedContractEvent<
       BackUnbackedEvent.InputTuple,
       BackUnbackedEvent.OutputTuple,
       BackUnbackedEvent.OutputObject
@@ -1454,7 +1754,7 @@ export interface IPoolV3 extends BaseContract {
       BackUnbackedEvent.OutputObject
     >;
 
-    'Borrow(address,address,address,uint256,uint8,uint256,uint16)': TypedContractEvent<
+    "Borrow(address,address,address,uint256,uint8,uint256,uint16)": TypedContractEvent<
       BorrowEvent.InputTuple,
       BorrowEvent.OutputTuple,
       BorrowEvent.OutputObject
@@ -1465,7 +1765,7 @@ export interface IPoolV3 extends BaseContract {
       BorrowEvent.OutputObject
     >;
 
-    'FlashLoan(address,address,address,uint256,uint8,uint256,uint16)': TypedContractEvent<
+    "FlashLoan(address,address,address,uint256,uint8,uint256,uint16)": TypedContractEvent<
       FlashLoanEvent.InputTuple,
       FlashLoanEvent.OutputTuple,
       FlashLoanEvent.OutputObject
@@ -1476,7 +1776,7 @@ export interface IPoolV3 extends BaseContract {
       FlashLoanEvent.OutputObject
     >;
 
-    'IsolationModeTotalDebtUpdated(address,uint256)': TypedContractEvent<
+    "IsolationModeTotalDebtUpdated(address,uint256)": TypedContractEvent<
       IsolationModeTotalDebtUpdatedEvent.InputTuple,
       IsolationModeTotalDebtUpdatedEvent.OutputTuple,
       IsolationModeTotalDebtUpdatedEvent.OutputObject
@@ -1487,7 +1787,7 @@ export interface IPoolV3 extends BaseContract {
       IsolationModeTotalDebtUpdatedEvent.OutputObject
     >;
 
-    'LiquidationCall(address,address,address,uint256,uint256,address,bool)': TypedContractEvent<
+    "LiquidationCall(address,address,address,uint256,uint256,address,bool)": TypedContractEvent<
       LiquidationCallEvent.InputTuple,
       LiquidationCallEvent.OutputTuple,
       LiquidationCallEvent.OutputObject
@@ -1498,7 +1798,7 @@ export interface IPoolV3 extends BaseContract {
       LiquidationCallEvent.OutputObject
     >;
 
-    'MintUnbacked(address,address,address,uint256,uint16)': TypedContractEvent<
+    "MintUnbacked(address,address,address,uint256,uint16)": TypedContractEvent<
       MintUnbackedEvent.InputTuple,
       MintUnbackedEvent.OutputTuple,
       MintUnbackedEvent.OutputObject
@@ -1509,7 +1809,7 @@ export interface IPoolV3 extends BaseContract {
       MintUnbackedEvent.OutputObject
     >;
 
-    'MintedToTreasury(address,uint256)': TypedContractEvent<
+    "MintedToTreasury(address,uint256)": TypedContractEvent<
       MintedToTreasuryEvent.InputTuple,
       MintedToTreasuryEvent.OutputTuple,
       MintedToTreasuryEvent.OutputObject
@@ -1520,7 +1820,7 @@ export interface IPoolV3 extends BaseContract {
       MintedToTreasuryEvent.OutputObject
     >;
 
-    'RebalanceStableBorrowRate(address,address)': TypedContractEvent<
+    "RebalanceStableBorrowRate(address,address)": TypedContractEvent<
       RebalanceStableBorrowRateEvent.InputTuple,
       RebalanceStableBorrowRateEvent.OutputTuple,
       RebalanceStableBorrowRateEvent.OutputObject
@@ -1531,7 +1831,7 @@ export interface IPoolV3 extends BaseContract {
       RebalanceStableBorrowRateEvent.OutputObject
     >;
 
-    'Repay(address,address,address,uint256,bool)': TypedContractEvent<
+    "Repay(address,address,address,uint256,bool)": TypedContractEvent<
       RepayEvent.InputTuple,
       RepayEvent.OutputTuple,
       RepayEvent.OutputObject
@@ -1542,7 +1842,7 @@ export interface IPoolV3 extends BaseContract {
       RepayEvent.OutputObject
     >;
 
-    'ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)': TypedContractEvent<
+    "ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)": TypedContractEvent<
       ReserveDataUpdatedEvent.InputTuple,
       ReserveDataUpdatedEvent.OutputTuple,
       ReserveDataUpdatedEvent.OutputObject
@@ -1553,7 +1853,7 @@ export interface IPoolV3 extends BaseContract {
       ReserveDataUpdatedEvent.OutputObject
     >;
 
-    'ReserveUsedAsCollateralDisabled(address,address)': TypedContractEvent<
+    "ReserveUsedAsCollateralDisabled(address,address)": TypedContractEvent<
       ReserveUsedAsCollateralDisabledEvent.InputTuple,
       ReserveUsedAsCollateralDisabledEvent.OutputTuple,
       ReserveUsedAsCollateralDisabledEvent.OutputObject
@@ -1564,7 +1864,7 @@ export interface IPoolV3 extends BaseContract {
       ReserveUsedAsCollateralDisabledEvent.OutputObject
     >;
 
-    'ReserveUsedAsCollateralEnabled(address,address)': TypedContractEvent<
+    "ReserveUsedAsCollateralEnabled(address,address)": TypedContractEvent<
       ReserveUsedAsCollateralEnabledEvent.InputTuple,
       ReserveUsedAsCollateralEnabledEvent.OutputTuple,
       ReserveUsedAsCollateralEnabledEvent.OutputObject
@@ -1575,7 +1875,7 @@ export interface IPoolV3 extends BaseContract {
       ReserveUsedAsCollateralEnabledEvent.OutputObject
     >;
 
-    'Supply(address,address,address,uint256,uint16)': TypedContractEvent<
+    "Supply(address,address,address,uint256,uint16)": TypedContractEvent<
       SupplyEvent.InputTuple,
       SupplyEvent.OutputTuple,
       SupplyEvent.OutputObject
@@ -1586,7 +1886,7 @@ export interface IPoolV3 extends BaseContract {
       SupplyEvent.OutputObject
     >;
 
-    'SwapBorrowRateMode(address,address,uint8)': TypedContractEvent<
+    "SwapBorrowRateMode(address,address,uint8)": TypedContractEvent<
       SwapBorrowRateModeEvent.InputTuple,
       SwapBorrowRateModeEvent.OutputTuple,
       SwapBorrowRateModeEvent.OutputObject
@@ -1597,7 +1897,7 @@ export interface IPoolV3 extends BaseContract {
       SwapBorrowRateModeEvent.OutputObject
     >;
 
-    'UserEModeSet(address,uint8)': TypedContractEvent<
+    "UserEModeSet(address,uint8)": TypedContractEvent<
       UserEModeSetEvent.InputTuple,
       UserEModeSetEvent.OutputTuple,
       UserEModeSetEvent.OutputObject
@@ -1608,7 +1908,7 @@ export interface IPoolV3 extends BaseContract {
       UserEModeSetEvent.OutputObject
     >;
 
-    'Withdraw(address,address,address,uint256)': TypedContractEvent<
+    "Withdraw(address,address,address,uint256)": TypedContractEvent<
       WithdrawEvent.InputTuple,
       WithdrawEvent.OutputTuple,
       WithdrawEvent.OutputObject

@@ -27,6 +27,8 @@ cat PROJECT_VERIFICATION_REPORT.md
 | `setup.sh` | 安装完整环境 | 初次安装 |
 | `activate-env.sh` | 激活环境 | 每次打开新终端 |
 | `verify-tools.sh` | 快速验证工具 | 环境检查 |
+| `install-glow.sh` | 安装 Glow（Markdown渲染器） | 可选安装 |
+| `install-tilix.sh` | 安装并配置 Tilix 终端 | 可选安装 |
 | `clear.sh` | 清理生成文件 | 提交代码前 |
 
 ---
@@ -199,6 +201,51 @@ src/types/                      # TypeScript 类型
 
 ---
 
+## 📖 可选工具
+
+### Glow - Markdown 渲染器
+
+为了更方便地在终端中查看文档，我们提供了 Glow 安装脚本：
+
+```bash
+# 安装 Glow
+./Step/install-glow.sh
+
+# 使用 Glow 查看文档（自动适应终端宽度）
+glow README.md
+glow Step/SETUP_GUIDE.md
+glow PROJECT_VERIFICATION_REPORT.md
+```
+
+**特性**：
+- ✅ 自动适应终端宽度
+- ✅ 彩色语法高亮
+- ✅ 分页浏览大文件
+- ✅ 支持代码块渲染
+- ✅ 安装后立即可用
+
+### Tilix - 现代化终端模拟器
+
+强大的平铺式终端，支持分屏和多标签：
+
+```bash
+# 安装并配置 Tilix（黑色背景）
+./Step/install-tilix.sh
+
+# 启动 Tilix
+tilix
+```
+
+**特性**：
+- ✅ 自动配置黑色背景主题
+- ✅ 平铺式终端布局
+- ✅ 拖放重新排列终端
+- ✅ 同步输入到多个终端
+- ✅ 现代化 UI 界面
+- ✅ Shell 命令别名（tl, tlx）
+
+---
+
 ## 💡 提示
 
 1. **第一次使用**建议先运行 `setup.sh`，再运行 `verify-project.sh`
@@ -206,6 +253,8 @@ src/types/                      # TypeScript 类型
 3. **报告会被覆盖**，如需保留旧报告请备份
 4. **所有脚本都支持重复运行**，不会破坏环境
 5. **VirtualBox 还原后**可直接运行 `verify-project.sh`
+6. **建议安装 Glow** 以获得更好的文档阅读体验
+7. **建议安装 Tilix** 作为主要终端（支持分屏、黑色主题）
 
 ---
 

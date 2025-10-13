@@ -13,7 +13,7 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
@@ -21,29 +21,52 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from '../../../common';
+} from "../../../common";
 
 export interface FlashBorrowerMockInterface extends Interface {
   getFunction(
-    nameOrSignature: 'CALLBACK_SUCCESS' | 'borrowed' | 'flashme' | 'initialize' | 'onFlashLoan',
+    nameOrSignature:
+      | "CALLBACK_SUCCESS"
+      | "borrowed"
+      | "flashme"
+      | "initialize"
+      | "onFlashLoan"
   ): FunctionFragment;
 
-  getEvent(nameOrSignatureOrTopic: 'Initialized'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
 
-  encodeFunctionData(functionFragment: 'CALLBACK_SUCCESS', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'borrowed', values: [AddressLike]): string;
-  encodeFunctionData(functionFragment: 'flashme', values: [AddressLike, BigNumberish]): string;
-  encodeFunctionData(functionFragment: 'initialize', values: [AddressLike]): string;
   encodeFunctionData(
-    functionFragment: 'onFlashLoan',
-    values: [AddressLike, AddressLike, BigNumberish, BigNumberish, BytesLike],
+    functionFragment: "CALLBACK_SUCCESS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "borrowed",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "flashme",
+    values: [AddressLike, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "initialize",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "onFlashLoan",
+    values: [AddressLike, AddressLike, BigNumberish, BigNumberish, BytesLike]
   ): string;
 
-  decodeFunctionResult(functionFragment: 'CALLBACK_SUCCESS', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'borrowed', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'flashme', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'onFlashLoan', data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "CALLBACK_SUCCESS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "borrowed", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "flashme", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "onFlashLoan",
+    data: BytesLike
+  ): Result;
 }
 
 export namespace InitializedEvent {
@@ -67,45 +90,55 @@ export interface FlashBorrowerMock extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
-  removeAllListeners<TCEvent extends TypedContractEvent>(event?: TCEvent): Promise<this>;
+  removeAllListeners<TCEvent extends TypedContractEvent>(
+    event?: TCEvent
+  ): Promise<this>;
 
-  CALLBACK_SUCCESS: TypedContractMethod<[], [string], 'view'>;
+  CALLBACK_SUCCESS: TypedContractMethod<[], [string], "view">;
 
-  borrowed: TypedContractMethod<[token: AddressLike], [bigint], 'view'>;
+  borrowed: TypedContractMethod<[token: AddressLike], [bigint], "view">;
 
-  flashme: TypedContractMethod<[token: AddressLike, amount: BigNumberish], [void], 'nonpayable'>;
+  flashme: TypedContractMethod<
+    [token: AddressLike, amount: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
 
-  initialize: TypedContractMethod<[flashLender: AddressLike], [void], 'nonpayable'>;
+  initialize: TypedContractMethod<
+    [flashLender: AddressLike],
+    [void],
+    "nonpayable"
+  >;
 
   onFlashLoan: TypedContractMethod<
     [
@@ -113,40 +146,48 @@ export interface FlashBorrowerMock extends BaseContract {
       token: AddressLike,
       amount: BigNumberish,
       arg3: BigNumberish,
-      arg4: BytesLike,
+      arg4: BytesLike
     ],
     [string],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  getFunction<T extends ContractMethod = ContractMethod>(key: string | FunctionFragment): T;
+  getFunction<T extends ContractMethod = ContractMethod>(
+    key: string | FunctionFragment
+  ): T;
 
-  getFunction(nameOrSignature: 'CALLBACK_SUCCESS'): TypedContractMethod<[], [string], 'view'>;
   getFunction(
-    nameOrSignature: 'borrowed',
-  ): TypedContractMethod<[token: AddressLike], [bigint], 'view'>;
+    nameOrSignature: "CALLBACK_SUCCESS"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'flashme',
-  ): TypedContractMethod<[token: AddressLike, amount: BigNumberish], [void], 'nonpayable'>;
+    nameOrSignature: "borrowed"
+  ): TypedContractMethod<[token: AddressLike], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'initialize',
-  ): TypedContractMethod<[flashLender: AddressLike], [void], 'nonpayable'>;
+    nameOrSignature: "flashme"
+  ): TypedContractMethod<
+    [token: AddressLike, amount: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
-    nameOrSignature: 'onFlashLoan',
+    nameOrSignature: "initialize"
+  ): TypedContractMethod<[flashLender: AddressLike], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "onFlashLoan"
   ): TypedContractMethod<
     [
       arg0: AddressLike,
       token: AddressLike,
       amount: BigNumberish,
       arg3: BigNumberish,
-      arg4: BytesLike,
+      arg4: BytesLike
     ],
     [string],
-    'nonpayable'
+    "nonpayable"
   >;
 
   getEvent(
-    key: 'Initialized',
+    key: "Initialized"
   ): TypedContractEvent<
     InitializedEvent.InputTuple,
     InitializedEvent.OutputTuple,
@@ -154,7 +195,7 @@ export interface FlashBorrowerMock extends BaseContract {
   >;
 
   filters: {
-    'Initialized(uint8)': TypedContractEvent<
+    "Initialized(uint8)": TypedContractEvent<
       InitializedEvent.InputTuple,
       InitializedEvent.OutputTuple,
       InitializedEvent.OutputObject
