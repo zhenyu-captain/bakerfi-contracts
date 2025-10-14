@@ -1,0 +1,13 @@
+# 在项目根目录的 .gitignore 中添加分析产物规则
+# 这样可以防止提交，但不影响 Cursor 显示
+
+# BakerFi 分析产物（可通过脚本重新生成）
+handbooks/fucktest/analysis/abi/*.json
+handbooks/fucktest/analysis/ast/*.json
+handbooks/fucktest/analysis/reports/*-20*.md
+
+# 保留这些重要文件
+!handbooks/fucktest/analysis/README.md
+!handbooks/fucktest/analysis/INDEX.md
+!handbooks/fucktest/analysis/*.sh
+

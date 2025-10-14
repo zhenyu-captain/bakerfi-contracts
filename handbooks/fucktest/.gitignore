@@ -1,0 +1,11 @@
+# 分析产物（自动生成的文件较大，不提交到 Git）
+# 但在 Cursor 中可以看到（注释掉 ignore 规则）
+
+# analysis/abi/*.json
+# analysis/ast/*.json
+# analysis/reports/*-20*.md
+
+# 说明：
+# - 如果想在 Git 中忽略这些文件，取消上面的注释
+# - 如果想在 Cursor 中查看这些文件，保持注释状态
+# - 文件可以随时通过脚本重新生成
