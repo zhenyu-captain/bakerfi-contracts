@@ -47,16 +47,52 @@ check_warn() {
 # ============================================
 echo -e "${YELLOW}📁 检查目录结构...${NC}"
 
-if [ -d "handbooks/fucktest/analysis/abi" ]; then
+if [ -d "handbooks/fucktest/slither_analysis/abi" ]; then
     check_pass "ABI 目录存在"
 else
     check_fail "ABI 目录不存在"
 fi
 
-if [ -d "handbooks/fucktest/analysis/ast" ]; then
+if [ -d "handbooks/fucktest/slither_analysis/ast" ]; then
     check_pass "AST 目录存在"
 else
     check_fail "AST 目录不存在"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/detectors" ]; then
+    check_pass "Detectors 目录存在"
+else
+    check_warn "Detectors 目录不存在（需要运行 extract-detectors.sh）"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/contract-summary" ]; then
+    check_pass "Contract-summary 目录存在"
+else
+    check_warn "Contract-summary 目录不存在（需要运行 extract-contract-summary.sh）"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/function-summary" ]; then
+    check_pass "Function-summary 目录存在"
+else
+    check_warn "Function-summary 目录不存在（需要运行 extract-function-summary.sh）"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/call-graph" ]; then
+    check_pass "Call-graph 目录存在"
+else
+    check_warn "Call-graph 目录不存在（需要运行 extract-call-graph.sh）"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/data-dependency" ]; then
+    check_pass "Data-dependency 目录存在"
+else
+    check_warn "Data-dependency 目录不存在（需要运行 extract-data-dependency.sh）"
+fi
+
+if [ -d "handbooks/fucktest/slither_analysis/slithir" ]; then
+    check_pass "SlithIR 目录存在"
+else
+    check_warn "SlithIR 目录不存在（需要运行 extract-slithir.sh）"
 fi
 
 echo ""
@@ -101,7 +137,7 @@ EXPECTED_CORE_CONTRACTS=(
     "MultiStrategyVault"
 )
 
-ABI_DIR="handbooks/fucktest/analysis/abi"
+ABI_DIR="handbooks/fucktest/slither_analysis/abi"
 abi_count=0
 abi_missing=0
 
@@ -160,7 +196,7 @@ echo ""
 # ============================================
 echo -e "${YELLOW}🌳 检查 AST 文件...${NC}"
 
-AST_DIR="handbooks/fucktest/analysis/ast"
+AST_DIR="handbooks/fucktest/slither_analysis/ast"
 ast_count=0
 ast_missing=0
 
@@ -254,7 +290,13 @@ echo ""
 echo -e "${YELLOW}📁 文件统计${NC}"
 echo "  ABI 文件: $(find "$ABI_DIR" -name "*.json" 2>/dev/null | wc -l) 个"
 echo "  AST 文件: $(find "$AST_DIR" -name "*.json" 2>/dev/null | wc -l) 个"
-echo "  总大小: $(du -sh handbooks/fucktest/analysis 2>/dev/null | cut -f1)"
+echo "  Detectors: $(find handbooks/fucktest/slither_analysis/detectors -name "*.json" 2>/dev/null | wc -l) 个"
+echo "  Contract-summary: $(find handbooks/fucktest/slither_analysis/contract-summary -name "*.txt" 2>/dev/null | wc -l) 个"
+echo "  Function-summary: $(find handbooks/fucktest/slither_analysis/function-summary -name "*.txt" 2>/dev/null | wc -l) 个"
+echo "  Call-graph: $(find handbooks/fucktest/slither_analysis/call-graph -name "*.dot" 2>/dev/null | wc -l) 个"
+echo "  Data-dependency: $(find handbooks/fucktest/slither_analysis/data-dependency -name "*.txt" 2>/dev/null | wc -l) 个"
+echo "  SlithIR: $(find handbooks/fucktest/slither_analysis/slithir -name "*.txt" 2>/dev/null | wc -l) 个"
+echo "  总大小: $(du -sh handbooks/fucktest/slither_analysis 2>/dev/null | cut -f1)"
 echo ""
 
 # ============================================

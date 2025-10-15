@@ -14,7 +14,7 @@ echo -e "${BLUE}=== BakerFi 合约 AST 提取工具 ===${NC}\n"
 # 确保在正确的目录
 cd "$(dirname "$0")/../../.."
 PROJECT_ROOT=$(pwd)
-OUTPUT_DIR="handbooks/fucktest/analysis/ast"
+OUTPUT_DIR="handbooks/fucktest/slither_analysis/ast"
 
 # 创建输出目录
 mkdir -p "$OUTPUT_DIR"
